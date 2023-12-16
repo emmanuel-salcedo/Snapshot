@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 589.18 589.18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+        font-family: AdobeMyungjoStd-Medium-KSCpc-EUC-H, 'Adobe Myungjo Std';
+        font-size: 86px;
+        font-weight: 500;
+      }
+
+      .cls-2 {
+        stroke-width: 16px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: none;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-width: 10px;
+      }
+
+      .cls-4 {
+        stroke-width: 7px;
+      }
+
+      .cls-5 {
+        stroke-width: 12px;
+      }
+
+      .cls-6 {
+        stroke-width: 19px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <circle class="cls-2" cx="294.59" cy="226.53" r="33.52"/>
+      <circle class="cls-3" cx="204.7" cy="252.87" r="16.28"/>
+      <circle class="cls-3" cx="348.54" cy="150.1" r="16.28"/>
+      <circle class="cls-3" cx="220.98" cy="349.01" r="16.28"/>
+      <circle class="cls-5" cx="397.75" cy="294.59" r="46.32"/>
+      <circle class="cls-5" cx="210.61" cy="131.08" r="46.32"/>
+      <line class="cls-2" x1="270.42" y1="203.32" x2="246.93" y2="177.39"/>
+      <line class="cls-2" x1="312.48" y1="198.19" x2="332.26" y2="169.99"/>
+      <line class="cls-2" x1="263.39" y1="238.82" x2="227.9" y2="247.25"/>
+      <line class="cls-2" x1="279.22" y1="260.05" x2="237.27" y2="329.12"/>
+      <line class="cls-2" x1="322.37" y1="243.04" x2="351.29" y2="264.2"/>
+      <text class="cls-1" transform="translate(97.65 449.52)"><tspan x="0" y="0">IT Optics</tspan></text>
+      <circle class="cls-6" cx="294.59" cy="294.59" r="285.09"/>
+      <circle class="cls-4" cx="294.59" cy="294.59" r="259.87"/>
+    </g>
+  </g>
+</svg>

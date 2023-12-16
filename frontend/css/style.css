@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  background-color: #021318;
+  color: #000000;
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0; }
+
+header {
+  padding: 10px; }
+  header #logo {
+    height: auto;
+    width: 250px;
+    margin-left: 10px; }
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1200px;
+  margin: 0 auto; }
+  main .left-column, main .right-column {
+    display: flex;
+    flex-direction: column; }
+  main .left-column {
+    flex: 0 0 300px;
+    margin-right: 20px; }
+  main .right-column {
+    flex: 1; }
+  main .data-cards-container {
+    display: flex;
+    justify-content: space-between; }
+  main .card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 20px #EBAE3C;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    main .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 8px 30px #188AA4; }
+  main #graph {
+    height: 400px;
+    margin-bottom: 20px; }
+  main .user-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: #333333; }
+  main #user-info {
+    width: 300px;
+    height: auto; }
+  main #uptime-card,
+  main #throughput-card,
+  main #signal-card,
+  main #frequency-card {
+    flex: 1;
+    margin-right: 20px; }
+
+@media (max-width: 1024px) {
+  #graph {
+    flex-basis: 100%;
+    height: 400px; }
+
+  #uptime-card,
+  #throughput-card,
+  #test-card {
+    flex-basis: 300px; } }
+.hidden {
+  display: none; }
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column; }
+
+  .card {
+    width: auto;
+    margin: 10px;
+    height: auto; }
+
+  #user-info,
+  #graph,
+  #uptime-card,
+  #throughput-card,
+  #signal-card {
+    flex: 0 0 100%;
+    margin-right: 0; } }
+footer {
+  background-color: #021318;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%; }
+  footer .bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; }
+    footer .bottom-container .update-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px; }
+      footer .bottom-container .update-container input, footer .bottom-container .update-container button {
+        margin: 0 10px; }
+      footer .bottom-container .update-container input {
+        padding: 10px;
+        border: 1px solid #e6e6e6;
+        border-radius: 4px; }
+      footer .bottom-container .update-container button {
+        background-color: #EBAE3C;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer; }
+        footer .bottom-container .update-container button:hover {
+          background-color: #dd9817; }
+    footer .bottom-container #last-updated {
+      font-size: 0.9em;
+      color: white;
+      opacity: 0.8; }
+
+@media (max-width: 768px) {
+  footer .bottom-container .update-container {
+    flex-direction: column; }
+    footer .bottom-container .update-container input, footer .bottom-container .update-container button {
+      margin: 10px 0; } }
+@keyframes flashAnimation {
+  0%, 100% {
+    opacity: 1; }
+  50% {
+    opacity: 0.5; } }
+.flash {
+  animation: flashAnimation 1s ease-out 3; }
+
+.splash-screen {
+  font-size: 42px;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; }
+
+.color-seafoam {
+  color: #6CC294; }
+
+.color-mustard {
+  color: #EBAE3C; }
+
+.color-skyblue {
+  color: #188AA4; }
+
+.color-white {
+  color: #FFFFFF;
+  background: #333;
+  padding: 0 2px; }
+
+@keyframes rollInFadeOut {
+  0% {
+    transform: translateX(-100vw) rotate(-720deg);
+    opacity: 0; }
+  50% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+.website-name span {
+  display: inline-block;
+  opacity: 0;
+  animation: rollInFadeOut 3.8s ease forwards; }
+
+.website-name span:nth-child(1) {
+  animation-delay: 0.1s; }
+
+.website-name span:nth-child(2) {
+  animation-delay: 0.2s; }
+
+.website-name span:nth-child(3) {
+  animation-delay: 0.3s; }
+
+.website-name span:nth-child(4) {
+  animation-delay: 0.4s; }
+
+.website-name span:nth-child(5) {
+  animation-delay: 0.5s; }
+
+.website-name span:nth-child(6) {
+  animation-delay: 0.6s; }
+
+.website-name span:nth-child(7) {
+  animation-delay: 0.7s; }
+
+.website-name span:nth-child(8) {
+  animation-delay: 0.8s; }
+
+/*# sourceMappingURL=style.css.map */

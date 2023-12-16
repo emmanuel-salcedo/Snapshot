@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snapshot Dashboard</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Make sure this path points to your compiled CSS -->
+    <script src="js/chart.js"></script>
+    <script src="js/chartjs-plugin-annotation@1.0.2"></script>
+
+</head>
+
+<script>
+	function urlPull() {
+		const queryString = window.location.search;
+		console.log(queryString);
+		const urlParams = new URLSearchParams(queryString); 
+		const customerName = urlParams.get('name');
+		const ipInfo = urlParams.get('IP');
+		const downSpeed = urlParams.get('DL');
+		const upSpeed = urlParams.get('UP');
+		const radioMac = urlParams.get('radioMac');
+		
+		document.getElementById("customerName").innerHTML =customerName;
+		document.getElementById("radioInfo").innerHTML = ipInfo;
+		document.getElementById("download").innerHTML = downSpeed/1024;
+		document.getElementById("upload").innerHTML = upSpeed/1024;
+		document.getElementById("macAddress").innerHTML = radioMac;
+		document.getElementById("mac-address").value = radioMac;
+	}
+</script>
+
+<body onload="urlPull()">
+
+	<div id="splash-screen" class="splash-screen">
+		<h1 class="website-name">
+			<span class="color-seafoam">S</span>
+			<span class="color-mustard">n</span>
+			<span class="color-skyblue">a</span>
+			<span class="color-white">p</span>
+			<span class="color-seafoam">s</span>
+			<span class="color-mustard">h</span>
+			<span class="color-skyblue">o</span>
+			<span class="color-white">t</span>
+		</h1>
+	</div>
+	
+    <header>
+        <!-- Logo goes here -->
+        <img src="images/Snapshot Logo.png" alt="Snapshot Logo" id="logo">
+    </header>
+    
+    <main>
+        <!-- Left Column that will hold the user info -->
+		<div class="left-column">
+			<!-- User Information Card -->
+			<section class="card" id="user-info">
+				<div class="user-info-header">
+					
+					<div class="ethernet-icon">
+						<img src="images/Asset 3.svg" alt="Ethernet-Symbol" id="ethernet-status-image">
+					</div>
+				</div>
+				<h1 class="user-name"><span id="customerName">Client Name</span></h1>
+				<div class="user-details">
+					<div class="detail">
+						<p class="secondary-text"><b>Speed Package</b></p>
+						<p id="speed-package" class="primary-text"><span id="download"> N/A </span> Mbps Down / <span id="upload"> N/A </span> Mbps Up</p>
+						
+					</div>
+					<div class="detail">
+						<p class="secondary-text"><b>Product</b></p>
+						<p id="product" class="primary-text"><span id="product"> N/A </span></p>
+						
+					</div>
+					<div class="detail">
+						<p class="secondary-text"><b>Radio IP</b></p>
+						<p id="radio-ip" class="primary-text"><span id="radioInfo"> N/A </span></p>
+						
+					</div>
+					<div class="detail">
+						<p class="secondary-text"><b>Radio MAC</b></p>
+						<p id="radio-mac" class="primary-text"><span id="macAddress"> N/A </span></p>
+						
+					</div>
+					<hr>
+					<div class="detail">
+						<p class="secondary-text"><b>LAN Speed</b></p>
+						<p id="lan" class="primary-text"><span id="lan"> N/A </span></p>
+						
+					</div>
+					
+				</div>
+			</section>
+		</div>
+
+        <!-- Right Column that will hold the user info -->
+		<div class="right-column">
+			<!-- Graph Card -->
+			<section class="card" id="graph">
+				<!-- <div id="graph-container" class="kpi-card"> -->
+					<canvas id="throughputGraph"></canvas>
+				<!-- </div> -->
+			</section>
+			
+			<!-- Container for cards underneath Graph -->
+			<div class="data-cards-container">
+				
+				<!-- Data Cards -->
+				<section class="card" id="signal-card">
+					<p class="secondary-text"><b>Signal</b></p>
+					<p id="signal-strength" class="primary-text"> N/A </p>
+					
+					<p class="secondary-text"><b>Tx Rate</b></p>
+					<p id="tx-rate" class="primary-text"> N/A </p>
+					
+					<p class="secondary-text"><b>Rx Rate</b></p>
+					<p id="rx-rate" class="primary-text"> N/A </p>	
+				</section>
+				
+				<section class="card" id="throughput-card">
+					<p class="secondary-text"><b>Rx Throughput</b></p>
+					<p id="rx-throughput" class="primary-text"> N/A </p>
+					
+					<p class="secondary-text"><b>Tx Throughput</b></p>
+					<p id="tx-throughput" class="primary-text"> N/A </p>
+					
+					<p class="secondary-text"><b>WLAN Latency</b></p>
+					<p id="wlan" class="primary-text"> N/A </p>
+				</section>
+				
+				<section class="card" id="uptime-card">
+					<p class="secondary-text"><b>Wireless Uptime</b></p>
+					<p id="wireless-uptime" class="primary-text"> N/A </p>
+
+					<p class="secondary-text"><b>System Uptime</b></p>
+					<p id="system-uptime" class="primary-text"> N/A </p>
+				</section>
+				
+				<section class="card" id="frequency-card">
+					<p class="secondary-text"><b>Frequency</b></p>
+					<p id="frequency" class="primary-text"> N/A </p>
+					
+					<p class="secondary-text"><b>Frequency Range</b></p>
+					<p id="frequency-range" class="primary-text"> N/A </p>
+					
+					<p class="secondary-text"><b>Channel</b></p>
+					<p id="channel" class="primary-text"> N/A </p>
+				</section>
+			</div>
+			<!-- Add more cards as needed -->
+			
+		</div>
+    </main>
+</body>
+
+<footer class="footer">
+	<div class="bottom-container">
+		<!-- MAC Address Input and Update Button -->
+		<div class="update-container">
+			<input type="text" id="mac-address" placeholder="Enter MAC Address">
+			<button id="update-button">Update KPIs</button>
+			<button id="stop-update-button">Stop Updating</button>
+		</div>
+		<!-- Footer with Last Updated Timestamp -->
+					
+		<p id="last-updated">Last Updated: Not yet updated</p>	
+	</div>
+</footer>
+
+    <script src="js/dashboard.js"></script>
+	
+</html>

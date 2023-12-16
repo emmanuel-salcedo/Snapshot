@@ -1,0 +1,279 @@
+//import Fonts
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+// Define colors and other variable
+$background-color: #021318;
+$card-background-color: #ffffff;
+$text-color: #000000;
+$primary-color: #4CAF50; // Adjust with the primary color from your design
+$secondary-text-color: #000000; // If you want to darken, use darken(#000000, 20%);
+
+$company-green: #6CC294;
+$company-orange: #EBAE3C;
+$company-blue: #188AA4;
+
+// Layout variables
+$gutter: 20px; // Space between cards
+$user-info-fixed-width: 300px; // User info card width as a percentage
+$graph-card-height: 400px; // Fixed height for the graph card
+$small-card-width: 300px;; // Width for the small cards
+$small-card-height: 600px; // Fixed height for the small cards
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
+header {
+  padding: 10px;
+  #logo {
+    height: auto;
+    width: 250px; // Adjust the logo width here
+    margin-left: 10px;
+  }
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $gutter;
+	justify-content: center; // Center the flex items
+	padding-left: $gutter;
+    padding-right: $gutter;
+	max-width: 1200px; // Max width for the entire container, adjust as needed
+	margin: 0 auto; // This will center the main container on the page
+    
+	.left-column, .right-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-column {
+        flex: 0 0 $user-info-fixed-width;
+        margin-right: $gutter;
+    }
+
+    .right-column {
+        flex: 1;
+    }
+
+    .data-cards-container {
+        display: flex;
+        justify-content: space-between; // Space out the data cards
+    }
+
+	.card {
+	  background-color: $card-background-color; // Background color of the card
+	  border-radius: 20px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 20px $company-orange; // Initial shadow with a hint of company orange
+	  padding: 20px;
+	  text-align: center;
+	  margin-bottom: $gutter;
+	  transition: transform 0.3s ease, box-shadow 0.3s ease; // Smooth transition for hover effect
+
+	  &:hover {
+		transform: translateY(-5px); // "Lift" effect on hover
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 8px 30px $company-blue; // Change shadow color to company blue on hover
+	  }
+	}
+	
+
+    #graph {
+        height: $graph-card-height;
+        margin-bottom: $gutter;
+    }
+	
+	.user-name {
+		font-family: 'Roboto', sans-serif;
+	  	font-weight: 600; 
+		font-size: 30px; 
+		color: #333333; 
+	}
+
+    #user-info {
+        width: $user-info-fixed-width; 
+        height: auto; 
+        
+    }
+
+    #uptime-card,
+    #throughput-card,
+    #signal-card,
+	#frequency-card {
+        flex: 1; 
+        margin-right: $gutter; 
+        
+    }
+}
+
+// Responsive design adjustments
+@media (max-width: 1024px) {
+  #graph {
+    flex-basis: 100%;
+    height: $graph-card-height;
+  }
+
+  #uptime-card,
+  #throughput-card,
+  #test-card {
+    flex-basis: $small-card-width;
+  }
+}
+
+.hidden {
+	display: none;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .card {
+    width: auto;
+    margin: 10px;
+    height: auto; 
+  }
+
+  #user-info,
+  #graph,
+  #uptime-card,
+  #throughput-card,
+  #signal-card {
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
+}
+
+footer {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px 0; // Add some padding on top and bottom
+  align-items: center; // Vertically center the items in the footer
+  justify-content: center; // Horizontally center the items in the footer
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center; // Center align the text for any content that flows onto the next line
+  width: 100%; // Ensure footer takes full width if not already
+  
+  .bottom-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
+
+    .update-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: $gutter; // Space between update-container and the last updated text
+      
+      input, button {
+        margin: 0 $gutter / 2; // Add space around inputs and buttons
+      }
+
+      input {
+        padding: 10px;
+        border: 1px solid darken($card-background-color, 10%); // Slightly darker border for input
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: $company-orange;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($company-orange, 10%); // Slightly darken the button on hover
+        }
+      }
+    }
+    
+    #last-updated {
+      font-size: 0.9em;
+	  color: white;
+      opacity: 0.8; // Slightly fade the text to make it less prominent
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  footer .bottom-container {
+    .update-container {
+      flex-direction: column; // Stack the input and buttons vertically on smaller screens
+      
+      input, button {
+        margin: $gutter / 2 0; // Add space above and below inputs and buttons
+      }
+    }
+  }
+}
+
+@keyframes flashAnimation {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.flash {
+  animation: flashAnimation 1s ease-out 3; 
+}
+
+.splash-screen {
+	font-size: 42px;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.color-seafoam { color: #6CC294; }
+.color-mustard { color: #EBAE3C; }
+.color-skyblue { color: #188AA4; }
+.color-white { color: #FFFFFF; background: #333; padding: 0 2px; }
+
+@keyframes rollInFadeOut {
+    0% {
+        transform: translateX(-100vw) rotate(-720deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.website-name span {
+    display: inline-block;
+    opacity: 0;
+    animation: rollInFadeOut 3.8s ease forwards;
+}
+
+.website-name span:nth-child(1) { animation-delay: 0.1s; }
+.website-name span:nth-child(2) { animation-delay: 0.2s; }
+.website-name span:nth-child(3) { animation-delay: 0.3s; }
+.website-name span:nth-child(4) { animation-delay: 0.4s; }
+.website-name span:nth-child(5) { animation-delay: 0.5s; }
+.website-name span:nth-child(6) { animation-delay: 0.6s; }
+.website-name span:nth-child(7) { animation-delay: 0.7s; }
+.website-name span:nth-child(8) { animation-delay: 0.8s; }
+
