@@ -4,6 +4,9 @@
 
 SnapShot is a web application that displays various Key Performance Indicators (KPIs) related to network device statistics. The application is divided into a backend and a frontend, where the backend is responsible for data retrieval and API services, and the frontend is dedicated to presenting the data in a user-friendly manner.
 
+![Snapshot](https://github.com/itoptics/Snapshot/assets/53919358/66fe0e0e-0a77-412c-920a-f469f0edbaac)
+
+
 ## AirControl Requirement
 
 The tool requires there be an existing Ubiquiti airControl v2.1 server on your network. The API calls use the airControl REST API v1. An API user and password will be used to make the calls. Login credentials need to placed in the kpi_script.py file
